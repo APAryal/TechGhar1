@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Courses - TechGhar</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#F97417',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="w-full shadow bg-white dark:bg-gray-900 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
+      <!-- Logo -->
+      <a href="index.html" class="font-bold text-2xl text-primary flex-shrink-0">TechGhar</a>
+
+      <!-- Search (desktop) -->
+      <div class="hidden lg:flex flex-1 mx-6">
+        <input
+          type="text"
+          placeholder="Search..."
+          class="w-full px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-primary text-base"
+        />
+      </div>
+
+      <!-- Menu Items (desktop) -->
+      <ul class="hidden md:flex gap-6 items-center font-medium">
+        <li><a href="index.html" class="hover:text-primary transition">Home</a></li>
+        <li><a href="courses.html" class="text-primary font-semibold">Courses</a></li>
+        <li><a href="#" class="hover:text-primary transition">Mock Tests</a></li>
+        <li><a href="#" class="hover:text-primary transition">Tutors</a></li>
+        <li><a href="#" class="hover:text-primary transition">MCQs</a></li>
+        <li><a href="contact.html" class="hover:text-primary transition">Contact</a></li>
+      </ul>
+
+      <!-- Right Side: Theme, Auth -->
+      <div class="flex items-center gap-2 ml-2">
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition" aria-label="Toggle theme">
+          <svg id="theme-icon-sun" class="w-5 h-5 text-primary dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+          <svg id="theme-icon-moon" class="w-5 h-5 text-primary hidden dark:inline" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
+          </svg>
+        </button>
+        <!-- Auth Buttons -->
+        <a href="login.html" class="hidden md:inline px-4 py-1 rounded font-semibold text-primary border border-primary hover:bg-primary hover:text-white transition">Log in</a>
+        <a href="login.html" class="hidden md:inline px-4 py-1 rounded font-semibold bg-primary text-white hover:bg-orange-600 transition">Sign up</a>
+        <!-- Hamburger (mobile) -->
+        <button id="navbar-toggle" class="md:hidden p-2 ml-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+          <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <div class="flex flex-col gap-2 mt-2">
+        <input
+          type="text"
+          placeholder="Search..."
+          class="w-full px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 focus:outline-primary text-base"
+        />
+        <a href="index.html" class="py-2 px-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Home</a>
+        <a href="courses.html" class="py-2 px-2 rounded bg-primary text-white">Courses</a>
+        <a href="#" class="py-2 px-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Mock Tests</a>
+        <a href="#" class="py-2 px-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Tutors</a>
+        <a href="#" class="py-2 px-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">MCQs</a>
+        <a href="contact.html" class="py-2 px-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+        <div class="flex gap-2 mt-2">
+          <a href="login.html" class="flex-1 px-4 py-1 rounded font-semibold text-primary border border-primary hover:bg-primary hover:text-white transition text-center">Log in</a>
+          <a href="login.html" class="flex-1 px-4 py-1 rounded font-semibold bg-primary text-white hover:bg-orange-600 transition text-center">Sign up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Courses Section -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold mb-8 text-primary">Our Courses</h1>
+    <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Course Card Example -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 flex flex-col">
+        <h2 class="text-xl font-semibold mb-2 text-primary">Computer Networks</h2>
+        <p class="mb-4 text-gray-600 dark:text-gray-300">Learn about OSI model, TCP/IP, routing, switching, and more.</p>
+        <a href="#" class="mt-auto inline-block px-4 py-2 rounded bg-primary text-white hover:bg-orange-600 transition font-semibold">View Details</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 flex flex-col">
+        <h2 class="text-xl font-semibold mb-2 text-primary">Database Management</h2>
+        <p class="mb-4 text-gray-600 dark:text-gray-300">Master SQL, normalization, transactions, and database design.</p>
+        <a href="#" class="mt-auto inline-block px-4 py-2 rounded bg-primary text-white hover:bg-orange-600 transition font-semibold">View Details</a>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow p-6 flex flex-col">
+        <h2 class="text-xl font-semibold mb-2 text-primary">Software Engineering</h2>
+        <p class="mb-4 text-gray-600 dark:text-gray-300">Explore SDLC, agile, UML, testing, and project management.</p>
+        <a href="#" class="mt-auto inline-block px-4 py-2 rounded bg-primary text-white hover:bg-orange-600 transition font-semibold">View Details</a>
+      </div>
+      <!-- Add more course cards as needed -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 mt-auto">
+    <div class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Social Links -->
+      <div>
+        <h4 class="text-lg font-semibold mb-3">Follow Us</h4>
+        <div class="flex gap-4">
+          <a href="#" target="_blank" class="hover:text-blue-500">Facebook</a>
+          <a href="#" target="_blank" class="hover:text-blue-400">Twitter</a>
+          <a href="#" target="_blank" class="hover:text-pink-500">Instagram</a>
+        </div>
+      </div>
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-lg font-semibold mb-3">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="index.html" class="hover:underline">Home</a></li>
+          <li><a href="about.html" class="hover:underline">About</a></li>
+          <li><a href="terms.html" class="hover:underline">Terms & Conditions</a></li>
+          <li><a href="privacy.html" class="hover:underline">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <!-- Contact Info -->
+      <div>
+        <h4 class="text-lg font-semibold mb-3">Contact Info</h4>
+        <p>Email: info@techghar.com</p>
+        <p>Phone: +977 9800000000</p>
+        <p>Location: Kathmandu, Nepal</p>
+      </div>
+    </div>
+    <div class="text-center py-4 border-t border-gray-300 dark:border-gray-700">
+      <p>&copy; 2025 TechGhar. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Navbar JS -->
+  <script>
+    // Mobile menu toggle
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("navbar-toggle");
+      const menu = document.getElementById("mobile-menu");
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("hidden");
+        });
+      }
+
+      // Theme toggle
+      const themeToggle = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+      const sun = document.getElementById("theme-icon-sun");
+      const moon = document.getElementById("theme-icon-moon");
+
+      function updateIcons() {
+        if (html.classList.contains("dark")) {
+          sun.classList.add("hidden");
+          moon.classList.remove("hidden");
+        } else {
+          sun.classList.remove("hidden");
+          moon.classList.add("hidden");
+        }
+      }
+
+      // Initial mode
+      if (localStorage.getItem("theme") === "dark") {
+        html.classList.add("dark");
+      } else {
+        html.classList.remove("dark");
+      }
+      updateIcons();
+
+      themeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const newTheme = html.classList.contains("dark") ? "dark" : "light";
+        localStorage.setItem("theme", newTheme);
+        updateIcons();
+      });
+    });
+  </script>
+</body>
+</html>
